@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda</title>
+    <link rel="stylesheet" href="/assets/css/boostrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="shortcut icon" href="/assets/images/Logo.png" type="image/x-icon">
+
+
+    <style>
+        #map {
+            width: 450px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size: 18px;">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item mt-4">
+                    <a style="color: #cb3b48;" class="nav-link" href="IndexUser.html"><i class="fas fa-home mr-1"></i>Inicio </a>
+                </li>
+                <li class="nav-item mt-4">
+                    <a href="ContactoCliente.html" style="color: #cb3b48;" class="nav-link"><i class="far fa-address-card mr-1"></i>Contacto</a>
+                </li>
+                <figure style="width: 28%;">
+                    <img style="display: block; margin-left: auto; margin-right: auto;" class="img-fluid" width="45%" src="/assets/images/Logo.png" alt="">
+                </figure>
+                <li class="nav-item dropdown mt-4">
+                    <a style="color: #cb3b48;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user mr-1"></i>Cuenta
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a style="color: #cb3b48;" class="dropdown-item" href="Login.html"><i class="far fa-times-circle mr-2"></i> Cerrar Sesión</a>
+                    </div>
+                </li>
+                <li class="nav-item mt-4">
+                    <a style="color: #cb3b48;" class="nav-link" href="/CarritoCliente.html"><i class="fas fa-shopping-cart mr-1"></i>Carrito</a>
+                </li>
+                <li class="nav-item mt-4" id="mostrar">
+                    <a style="color: #cb3b48;" class="nav-link disabled"></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+            </form>
+        </div>
+    </nav>
+
+    <section class="mt-5">
+        <div class="container shadow">
+            <div class="mx-auto" style="width: 40%; height: 50%;" onsubmit="createPedido()">
+                <form action="javascript:void(0);" onsubmit="">
+                    <h1 class="h2 mb-3" style="color: #c91f33;">Hacer pedido</h1>
+                    <div id="contenido2" class="form-group">
+                        <div>
+                        </div>
+                    </div>
+                    <div id="contenido" class="form-group">
+                        <div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 10%;">
+                        <label for="exampleInputPassword1">Elige lugar de entrega</label>
+                        <input class="form-control mb-4" class="mb-3" type="text" id="autocomplete">
+                        <div id="map"></div>
+                        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbORRUHFXY9dGFnairm5rLMBk1yACp6lg&libraries=places"></script>
+                    </div>
+                    <button type="submit" class="btn mb-3" style="color: white   ; background-color: #70a46a;">Comprar</button>
+                </form>
+            </div>
+        </div>
+
+
+
+        <footer class="text-center text-white mt-5" style="background-color: #f1f1f1; ">
+            <!-- Grid container -->
+            <div class="container pt-1 ">
+                <!-- Section: Social media -->
+                <section class="mb-2 ">
+                    <!-- Facebook -->
+                    <a class="btn btn-link btn-floating btn-lg text-dark m-1 " href="#! " role="button " data-mdb-ripple-color="dark "><i class="fab fa-facebook-f "></i
+            ></a>
+
+                    <!-- Twitter -->
+                    <a class="btn btn-link btn-floating btn-lg text-dark m-1 " href="#! " role="button " data-mdb-ripple-color="dark "><i class="fab fa-twitter "></i
+            ></a>
+
+                    <!-- Google -->
+                    <a class="btn btn-link btn-floating btn-lg text-dark m-1 " href="#! " role="button " data-mdb-ripple-color="dark "><i class="fab fa-google "></i
+            ></a>
+
+                    <!-- Instagram -->
+                    <a class="btn btn-link btn-floating btn-lg text-dark m-1 " href="#! " role="button " data-mdb-ripple-color="dark "><i class="fab fa-instagram "></i
+            ></a>
+
+                    <!-- Linkedin -->
+                    <a class="btn btn-link btn-floating btn-lg text-dark m-1 " href="#! " role="button " data-mdb-ripple-color="dark "><i class="fab fa-linkedin "></i
+            ></a>
+                    <!-- Github -->
+                    <a class="btn btn-link btn-floating btn-lg text-dark m-1 " href="#! " role="button " data-mdb-ripple-color="dark "><i class="fab fa-github "></i
+            ></a>
+                </section>
+                <!-- Section: Social media -->
+            </div>
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div class="text-center text-dark p-3 " style="background-color: rgba(0, 0, 0, 0.2); ">
+                © 2020 Copyright:
+                <a class="text-dark " href="Index.html ">FlowerShop.com</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js " integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=" anonymous "></script>
+        <script src="./assets/js/arreglosFlorales.js "></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="./assets/js/pedido.js"></script>
+        <script src="./assets/js/localizacion.js"></script>
+        <script src="./assets/js/mains.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js " integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN " crossorigin="anonymous "></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js " integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2 " crossorigin="anonymous "></script>
+</body>
+
+</html>
