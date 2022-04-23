@@ -11,30 +11,9 @@ const blobToBase64 = (blob) => {
 }
 
 
-function buyArreglo() {
-    let price = localStorage.getItem("price");
-    let idArreglo = localStorage.getItem("idArreglo");
-    let description = localStorage.getItem("description");
-
-    contenido = "";
-    contenido += `<label for="exampleInputPassword1">Precio Total</label>
-                    <input type="text" value="${price}" class="form-control" disabled>`;
-    $("#contenido > div").html(contenido);
-
-    contenido2 = "";
-    contenido2 += `<label for="exampleInputPassword1">Descripción</label>
-                    <input type="text" value="${description}" class="form-control" disabled>`;
-    $("#contenido2 > div").html(contenido2);
-}
-
-buyArreglo();
-
-
-
 function getInfoSesion() {
     let nombre = localStorage.getItem("nombe");
     let idUser = localStorage.getItem("idUser");
-    
 
     mostrar = "";
     mostrar += `<div>${nombre}</div> `;
@@ -128,13 +107,8 @@ const findArreglo = async() => {
             contenido += ` 
                 <div class="col-12 col-sm-3 col-md-3">
                     <figure>
-                        <a href="./Pedido.html" onclick='getByIdF(${res[i].idArreglo})'>
+                        <a href="/Pedido.html">
                             <img  class="img-fluid rounded float-start" width="75%" height="75%" src= "data:image/*;base64,${imagen}" alt="">
-                            <div class="text-warning mt-2">
-                                <h6 style="color: black;">${res[i].name}</h6>
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <h3 style="color: black;" style="font-size: 22px;">$${res[i].price}<span style="font-size: 22px;">.00</span></h3>
-                            </div>
                         </a>
                     </figure>
                 </div>
@@ -145,24 +119,14 @@ const findArreglo = async() => {
 };
 findArreglo();
 
-//Obtener Id del arreglo seleccionado
-//<td>
-//<img src= "data:image/*;base64,${imagen}" class = "d-block w-100" alt="">
-//</td>
 
 const getByIdF = async id => {
     return await $.ajax({
         type: 'GET',
         url: urlA + '/producto/' + id
     }).done(res => {
-        let price = res.arreglo[0].price;
-        let idArreglo = res.arreglo[0].idArreglo;
-        let descripcion = res.arreglo[0].description;
-        localStorage.setItem("price", price);
-        localStorage.setItem("idArreglo", idArreglo);
-        localStorage.setItem("description", descripcion);
-
         console.log(res);
+        console.log(res.arreglo[0].idArreglo);
     });
 };
 
@@ -171,9 +135,6 @@ const getByIdF = async id => {
 const getInfoArreglo = async id => {
     let arreglo = await getByIdF(id);
     document.getElementById('descripcionInfo').value = arreglo.arreglo[0].description;
-    let idArreglo = arreglo.arreglo[0].price;
-    localStorage.setItem("idArreglo", idArreglo)
-
 }
 
 //Obtener informacion para actualizar
@@ -218,7 +179,7 @@ const deleteArreglo = async() => {
 };
 
 
-const getIdFlor = async id => {
+const getId = async id => {
     document.getElementById("id_delete").value = id;
 
 

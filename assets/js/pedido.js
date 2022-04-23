@@ -119,7 +119,7 @@ const findPedidos = async id => {
             content += `
             <tr class="text-center">
                 <td>${estado2}</td>
-                <td>${res[i].precio}</td>
+                <td>${res[i].price}</td>
                 <td>${res[i].place} </td>
                 <td>${f} </td>
                 <td>${h}</td>
@@ -134,7 +134,7 @@ const findPedidos = async id => {
 findPedidos();
 
 
-const getId = async idPedido => {
+const getIdCompra = async idPedido => {
     console.log(idPedido);
     document.getElementById("id_delete").value = idPedido;
     document.getElementById('id_enviar').value = idPedido;
@@ -241,9 +241,9 @@ const findPedidosAll = async id => {
                 break;
             case 1:
                 estado = "Pendiente de envío";
-                enviar =` <button class='btn btn-success' data-toggle='modal' onclick='getId(${res[i].idPedido})' data-target='#enviar' ><i class="fas fa-paper-plane"></i></button>`
+                enviar =` <button class='btn btn-success' data-toggle='modal' onclick='getIdCompra(${res[i].idPedido})' data-target='#enviar' ><i class="fas fa-paper-plane"></i></button>`
                 entregado= `Pendiente de envío`
-                desactivar = `<button class='btn btn-danger' data-toggle='modal' onclick='getId(${res[i].idPedido})' data-target='#delete' ><i class="fas fa-trash"></i></button>`
+                desactivar = `<button class='btn btn-danger' data-toggle='modal' onclick='getIdCompra(${res[i].idPedido})' data-target='#delete' ><i class="fas fa-trash"></i></button>`
 
                 break;
             case 2:
@@ -271,7 +271,7 @@ const findPedidosAll = async id => {
             content += `
             <tr class="text-center">
                 <td>${estado}</td>
-                <td>${res[i].precio}</td>
+                <td>${res[i].price}</td>
                 <td>${res[i].place} </td>
                 <td>${res[i].orderDate} </td>
                 <td>${res[i].deadLine}</td>
